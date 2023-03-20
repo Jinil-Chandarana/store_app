@@ -25,7 +25,7 @@ class Products with ChangeNotifier {
       description: 'Warm and cozy - exactly what you need for the winter.',
       price: 19.99,
       imageUrl:
-          'https://live.staticflickr.com/4043/4438260868_cc79b3369d_z.jpg',
+          'https://cdn.shopify.com/s/files/1/0067/4978/2119/products/KB9384_1296x.jpg',
     ),
     Product(
       id: 'p4',
