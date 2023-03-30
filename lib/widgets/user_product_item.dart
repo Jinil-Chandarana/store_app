@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_complete_guide/screens/edit_products_screen.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/products.dart';
 
 class UserProductItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageURL;
   UserProductItem({
     Key key,
     @required this.title,
+    @required this.id,
     @required this.imageURL,
   }) : super(key: key);
 
@@ -23,14 +26,19 @@ class UserProductItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .pushNamed(EditProductScreen.routeName, arguments: id);
+            },
             icon: Icon(
               Icons.edit,
               color: Theme.of(context).primaryColor,
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Provider.of<Products>(context, listen: false).deleteProduct(id);
+            },
             icon: Icon(
               Icons.delete,
               color: Theme.of(context).errorColor,
